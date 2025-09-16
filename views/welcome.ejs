@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>users list</h1>
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      <% users.forEach((user)=>{ %>
+      <tr>
+        <td><%=user._id%></td>
+        <td><%=user.username%></td>
+        <td><%=user.email%></td>
+        <td><%=user.status%></td>
+        <td>
+
+     
+          <% if (user.status === "Active"){%>
+          <button>
+            <a href="/users/<%= user._id  %>/disable">disable</a>
+          </button>
+          <% } else { %>
+            <button>
+                 <a href="/users/<%= user._id  %>/enable">enable</a>
+            </button>
+            <% } %>
+        </td>
+      </tr>
+
+      <% }) %>
+    </table>
+    <p><%= answer %></p>
+  </body>
+</html>
