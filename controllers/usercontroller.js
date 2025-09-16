@@ -97,3 +97,4 @@ export function loguser(req, res) {
   req.session.destroy();
   res.send("logout");
 }
+
